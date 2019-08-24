@@ -14,23 +14,24 @@
     <div class="row no-gutters">
       <div class="col-sm-4 text-center border-right">
         <p>
-          <img src="{{sprites.front_default}}" width="100%" >
+          <img src="{{bigpic}}" width="100%" >
         </p>
-        <p class="item-gallery">
+        <p (click)="openbigpic(sprites.front_default)" class="item-gallery">
           <img src="{{sprites.front_default}}">
         </p>
-        <p class="item-gallery">
+        <p (click)="openbigpic(sprites.front_shiny)" class="item-gallery">
           <img src="{{sprites.front_shiny}}">
         </p>
-        <p class="item-gallery">
+        <p (click)="openbigpic(sprites.back_default)" class="item-gallery">
           <img src="{{sprites.back_default}}">
-        </p><p class="item-gallery">
+        </p>
+        <p (click)="openbigpic(sprites.back_shiny)" class="item-gallery">
           <img src="{{sprites.back_shiny}}">
         </p>
       </div>
       <div class="col-sm-8">
         <div class="card-body">
-          <h3 class="title mb-2">{{name | titlecase}}</h3>
+          <h2 class="title mb-2">{{name | titlecase}}</h2>
           <span *ngFor="let x of types" class="{{x.type.name | colortype}}">{{x.type.name}}</span>
 
           <div class="row mt-4">  

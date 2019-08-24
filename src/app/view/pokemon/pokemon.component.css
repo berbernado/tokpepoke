@@ -109,6 +109,7 @@
     margin: 7px 2px;
     display: inline-block;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .item-gallery img{

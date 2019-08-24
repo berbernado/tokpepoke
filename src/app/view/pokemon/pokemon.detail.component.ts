@@ -27,7 +27,7 @@ export class PokemonDetailComponent implements OnInit {
   public stats: any;
   public types: any;
   public weight: any;
-
+  public bigpic: any;
 
   loading = true;
 
@@ -61,12 +61,17 @@ export class PokemonDetailComponent implements OnInit {
         this.stats = detilpoke.stats;
         this.types = detilpoke.types;
         this.weight = detilpoke.weight;
+        this.bigpic = detilpoke.sprites.front_default;
         this.loading = false;
 
       },
       error => {
         console.log(error);
       });
+  }
+
+  openbigpic(url: any){
+    this.bigpic = url;
   }
 
 }
