@@ -11,5 +11,4 @@ export class ContentDetailComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

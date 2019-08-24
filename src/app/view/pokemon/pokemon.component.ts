@@ -80,7 +80,6 @@ export class PokemonComponent implements OnInit {
         });
         id = id + 1;
     }
-
   }
 
   loadmore(): void {

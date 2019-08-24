@@ -11,7 +11,6 @@ import { PokemonComponent } from './pokemon/pokemon.component';
 import { FilterPipe} from '../../config/filter.pipe';
 import { ColorTypePipe } from './tools/colortype.pipe';
 
-
 @NgModule({
   imports: [
     CommonModule,

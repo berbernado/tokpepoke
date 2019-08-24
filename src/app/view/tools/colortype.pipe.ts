@@ -45,6 +45,5 @@ export class ColorTypePipe implements PipeTransform {
     } else if (items === 'shadow')  {
       return 'badge badge-dark';
     }
-
    }
 }
