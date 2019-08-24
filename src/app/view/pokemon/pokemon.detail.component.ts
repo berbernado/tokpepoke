@@ -26,6 +26,7 @@ export class PokemonDetialComponent implements OnInit {
   public sprites: any;
   public stats: any;
   public types: any;
+  public weight: any;
 
 
   loading = true;
@@ -59,6 +60,7 @@ export class PokemonDetialComponent implements OnInit {
         this.sprites = detilpoke.sprites;
         this.stats = detilpoke.stats;
         this.types = detilpoke.types;
+        this.weight = detilpoke.weight;
         this.loading = false;
 
       },

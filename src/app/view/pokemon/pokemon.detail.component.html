@@ -14,7 +14,7 @@
     <div class="row no-gutters">
       <div class="col-sm-4 text-center border-right">
         <p>
-          <img src="{{sprites.front_default}}" width="360" height="336">
+          <img src="{{sprites.front_default}}" width="100%" >
         </p>
         <p class="item-gallery">
           <img src="{{sprites.front_default}}">
@@ -33,19 +33,63 @@
           <h3 class="title mb-2">{{name | titlecase}}</h3>
           <span *ngFor="let x of types" class="{{x.type.name | colortype}}">{{x.type.name}}</span>
 
-          <div class="row mt-4">
-            <div class="col-md-6">
-              <h5>Poké Data</h5>
-              <table class="data-table">
-                <tbody>
-                  <tr>
-                    <th>Id Poké</th>
-                    <td><strong># {{id}}</strong></td>
-                  </tr>
-                </tbody>
-              </table>  
-            </div>
+          <div class="row mt-4">  
+            <div class="col-sm-6">
+             <h5 >Poké Data</h5>
+              <div class="form-group row mb-0">
+                <label class="col-sm-3 col-form-label col-form-label-sm lblkiri text-muted">Poke Id</label>
+                <label class="col-sm-9 col-form-label col-form-label-sm lblkanan font-weight-bold">
+                 # {{id}}
+                </label>
+              </div>
+              <hr class="border-bawah mt-0">
+
+              <div class="form-group row mb-0">
+                <label class="col-sm-3 col-form-label col-form-label-sm lblkiri text-muted">Height </label>
+                <label class="col-sm-9 col-form-label col-form-label-sm  font-weight-bold">
+                 {{height/10}} m
+                </label>
+              </div>
+              <hr class="border-bawah mt-0">
+
+              <div class="form-group row mb-0">
+                <label class="col-sm-3 col-form-label col-form-label-sm lblkiri text-muted">Weight </label>
+                <label class="col-sm-9 col-form-label col-form-label-sm  font-weight-bold">
+                 {{weight/10}} kg
+                </label>
+              </div>
+              <hr class="border-bawah mt-0">
+
+              <div class="form-group row mb-0">
+                <label class="col-sm-3 col-form-label col-form-label-sm lblkiri text-muted">Abilities </label>
+                <label class="col-sm-9 col-form-label col-form-label-sm ">
+                 <ol class="mb-0 font-weight-bold" style="padding-left:15px" >
+                  <li *ngFor="let x of abilities">
+                    <span>{{x.ability.name | titlecase}}</span>
+                    <span *ngIf="x.is_hidden === true" class="font-weight-light text-muted"> (hidden ability)</span>
+                  </li>
+                </ol> 
+                </label>
+              </div>
+              <hr class="border-bawah mt-0">
+            
+            
+            </div> <!-- poke kiri -->
+
+            <!-- poke kanan -->
+            <div class="col-sm-6">
+             <h5 class="border-bawah">Poké Data</h5>
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label col-form-label-sm lblkiri text-muted">Poke No</label>
+                <label class="col-sm-9 col-form-label col-form-label-sm lblkanan">
+                 {{id}}
+                </label>
+              </div>
+            </div> <!-- poke kanan -->
           </div>
-    </div>
-  </div>  
+        </div>
+      </div>  <!--end col 8-->
+
+    </div> 
+  </div>
 </div>

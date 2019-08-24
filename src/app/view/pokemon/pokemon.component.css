@@ -98,6 +98,10 @@
     border-color: #f0f0f0;
 }
 
+.main-gallery {
+  width: 360px;
+  height: 336px;
+}
 .item-gallery {
     width: 60px;
     height: 60px;
@@ -112,7 +116,7 @@
 }
 
 .border-bawah{
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05)
+  border-bottom: 0.1 solid rgba(0, 0, 0, 0.05)
 }
 
 .data-table{
@@ -131,4 +135,9 @@
     border-width: 1px 0;
     border-style: solid;
     border-color: #f0f0f0;
+}
+
+
+@media (max-width: 620px) {
+  
 }
