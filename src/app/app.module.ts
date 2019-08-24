@@ -6,6 +6,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ViewModule } from './view/view.module';
 import { ViewRoutingModule } from './app.routing';
+import { ContentComponent } from './view/content/content.component';
+import { FooterComponent } from './view/footer/footer.component';
+import { HeaderComponent } from './view/header/header.component';
+import { PokemonComponent } from './view/pokemon/pokemon.component';
 
 @NgModule({
   imports: [ 
@@ -16,7 +20,7 @@ import { ViewRoutingModule } from './app.routing';
     ViewRoutingModule
   ],
   declarations: [ 
-    AppComponent,
+    AppComponent, ContentComponent, FooterComponent, HeaderComponent, PokemonComponent,
   ],
   bootstrap: [
     AppComponent
