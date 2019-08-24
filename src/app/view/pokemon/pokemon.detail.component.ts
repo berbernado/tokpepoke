@@ -27,6 +27,9 @@ export class PokemonDetialComponent implements OnInit {
   public stats: any;
   public types: any;
 
+
+  loading = true;
+
   constructor(private route: ActivatedRoute,
               private httpService: HttpClient) { }
 
@@ -38,10 +41,26 @@ export class PokemonDetialComponent implements OnInit {
   }
 
   getPokeImages(){ 
-    console.log(UrlCollection.LISTPOKEMON + this.namepoke + '/');
     this.httpService.get<any>(UrlCollection.LISTPOKEMON + this.namepoke + '/').subscribe(
       detilpoke => {
-       console.log(detilpoke.forms);
+        this.abilities = detilpoke.abilities;
+        this.base_experience = detilpoke.base_experience;
+        this.forms = detilpoke.forms;
+        this.game_indices = detilpoke.game_indices;
+        this.height = detilpoke.height;
+        this.held_items = detilpoke.held_items;
+        this.id = detilpoke.id;
+        this.is_default = detilpoke.is_default;
+        this.location_area_encounters = detilpoke.location_area_encounters;
+        this.moves = detilpoke.moves;
+        this.name = detilpoke.name;
+        this.order = detilpoke.order;
+        this.species = detilpoke.species;
+        this.sprites = detilpoke.sprites;
+        this.stats = detilpoke.stats;
+        this.types = detilpoke.types;
+        this.loading = false;
+
       },
       error => {
         console.log(error);

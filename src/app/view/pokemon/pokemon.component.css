@@ -20,6 +20,11 @@
 .cardlist{
   margin-bottom: 20px;
   max-width: 50%;
+  cursor: pointer;
+}
+
+.card:hover{
+  background-color: #ecf0f1;
 }
 
 .card-title{
@@ -69,3 +74,17 @@
     background-color: #f1c40f;
 }
 
+.vitals-table {
+    width: 100%;
+}
+.vitals-table th {
+    color: #737373;
+    font-size: .875rem;
+    font-weight: normal;
+    text-align: right;
+}
+.vitals-table th, .vitals-table td {
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: #f0f0f0;
+}
