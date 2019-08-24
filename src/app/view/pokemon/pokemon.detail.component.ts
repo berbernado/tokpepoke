@@ -8,7 +8,7 @@ import { UrlCollection } from '../../../config/UrlCollection';
   templateUrl: './pokemon.detail.component.html',
   styleUrls: ['./pokemon.component.css']
 })
-export class PokemonDetialComponent implements OnInit {
+export class PokemonDetailComponent implements OnInit {
   public namepoke: string;
   public abilities: any;
   public base_experience: any;

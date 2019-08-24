@@ -8,16 +8,17 @@ import { FooterComponent } from './footer/footer.component';
 import { ContentComponent } from './content/content.component';
 import { ContentDetailComponent } from './content/content.detail.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
-import { PokemonDetialComponent } from './pokemon/pokemon.detail.component';
+import { PokemonDetailComponent } from './pokemon/pokemon.detail.component';
 import { FilterPipe} from '../../config/filter.pipe';
 import { ColorTypePipe } from './tools/colortype.pipe';
+import { ColorStatPipe } from './tools/colorstat.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule
   ],
-  declarations: [HeaderComponent, ContentComponent,ContentDetailComponent, FooterComponent, PokemonComponent, PokemonDetialComponent, FilterPipe, ColorTypePipe ],
+  declarations: [HeaderComponent, ContentComponent,ContentDetailComponent, FooterComponent, PokemonComponent, PokemonDetailComponent, FilterPipe, ColorTypePipe, ColorStatPipe ],
   exports: [ContentComponent,ContentDetailComponent]
 })
 export class ViewModule { }
