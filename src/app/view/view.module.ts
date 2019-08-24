@@ -12,13 +12,25 @@ import { PokemonDetailComponent } from './pokemon/pokemon.detail.component';
 import { FilterPipe} from '../../config/filter.pipe';
 import { ColorTypePipe } from './tools/colortype.pipe';
 import { ColorStatPipe } from './tools/colorstat.pipe';
+import { ReplaceLinePipe } from './tools/replaceline.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule
   ],
-  declarations: [HeaderComponent, ContentComponent,ContentDetailComponent, FooterComponent, PokemonComponent, PokemonDetailComponent, FilterPipe, ColorTypePipe, ColorStatPipe ],
+  declarations: [
+    HeaderComponent, 
+    ContentComponent,
+    ContentDetailComponent, 
+    FooterComponent, 
+    PokemonComponent, 
+    PokemonDetailComponent, 
+    FilterPipe, 
+    ColorTypePipe, 
+    ColorStatPipe,
+    ReplaceLinePipe 
+  ],
   exports: [ContentComponent,ContentDetailComponent]
 })
 export class ViewModule { }

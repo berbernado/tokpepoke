@@ -116,7 +116,11 @@
 }
 
 .border-bawah{
-  border-bottom: 0.1 solid rgba(0, 0, 0, 0.05)
+  border-bottom: 0.1 solid rgba(0, 0, 0, 0.05);
+}
+
+.border-0{
+  border-bottom: 0;
 }
 
 .data-table{

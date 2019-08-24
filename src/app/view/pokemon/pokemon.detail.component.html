@@ -34,10 +34,10 @@
           <span *ngFor="let x of types" class="{{x.type.name | colortype}}">{{x.type.name}}</span>
 
           <div class="row mt-4">  
-            <div class="col-sm-6">
+            <div class="col-sm-6 mb-4">
              <h5 >Poké Data</h5>
               <div class="form-group row mb-0">
-                <label class="col-sm-3 col-form-label col-form-label-sm lblkiri text-muted">Poke Id</label>
+                <label class="col-sm-3 col-form-label col-form-label-sm lblkiri text-muted">Poké ID</label>
                 <label class="col-sm-9 col-form-label col-form-label-sm lblkanan font-weight-bold">
                  # {{id}}
                 </label>
@@ -92,17 +92,18 @@
             </div> <!-- poke kiri -->
 
             <!-- poke kanan -->
-            <div class="col-sm-6">
+            <div class="col-sm-6 mb-4">
              <h5 class="border-bawah">Poké Stats</h5>
              <div *ngFor="let x of stats">
                <div class="form-group row mb-0">
-                  <label class="col-sm-3 col-form-label col-form-label-sm lblkiri text-muted">{{x.stat.name | titlecase}}</label>
+                  <label class="col-sm-3 col-form-label col-form-label-sm lblkiri text-muted">{{x.stat.name | replaceLine: '-': ' ' | titlecase}}</label>
                   <label class="col-sm-9 col-form-label col-form-label-sm font-weight-bold">
                   <div class="progress">
                     <div class="progress-bar {{x.base_stat | colorstat}}" role="progressbar"  [style.width.%]="x.base_stat" role="progressbar" >{{x.base_stat}}</div>
                   </div>
                   </label>
                 </div>
+                <hr class="border-0 mt-0">
              </div>
             </div> <!-- poke kanan -->
           </div>
