@@ -34,8 +34,6 @@ export class PokemonComponent implements OnInit {
     } else {
       url = this.geturl;
     };
-     
-    console.log(url);
     this.httpService.get<any>( url,
       {
         headers:{
@@ -86,6 +84,10 @@ export class PokemonComponent implements OnInit {
     this.geturl = this.nexturl;
     this.page = this.page + 21;
     this.getAllpkemon();
+  }
+
+  movedetail(name: string){
+    window.location.href = 'pokemon/' + name;
   }
   
 }
