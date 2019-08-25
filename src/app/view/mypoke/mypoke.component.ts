@@ -31,6 +31,7 @@ export class MypokeComponent implements OnInit {
     this.myPokeItems$.subscribe(_ => this.myPokeItems = _);
   }
   ngOnInit() {
+    console.log(localStorage.getItem('favpokemon'));
     this.getPokeImages();
   }
 

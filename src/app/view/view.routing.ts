@@ -9,20 +9,11 @@ const viewRoutes: Routes = [
   { path: 'pokemon', 
     component: PokemonComponent 
   },
-  { path: 'pokemon/:id',
+  { path: 'detial/:id',
     component: PokemonDetailComponent
   },
   { path: 'mypoke',
     component: MypokeComponent
-  },
-  {
-    path: 'pokemon',
-    component: PokemonComponent,
-    data: { title: 'pokemon List' }
-  },
-  { path: '',
-    redirectTo: '/pokemon',
-    pathMatch: 'full'
   },
 ];
 

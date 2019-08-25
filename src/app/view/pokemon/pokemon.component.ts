@@ -97,7 +97,7 @@ export class PokemonComponent implements OnInit {
   }
 
   movedetail(name: string){
-    window.location.href = 'pokemon/' + name;
+    window.location.href = 'detial/' + name;
   }
   
   public addToMyPoke(id: number, name: string) {

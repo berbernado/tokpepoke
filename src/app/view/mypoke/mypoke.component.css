@@ -1,0 +1,79 @@
+.breadcrumb{
+  background-color: #fff;
+  margin-top: 1rem;
+}
+.headertitle{
+  width: 50%;
+}
+.prosesload {
+    position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+  background-color:rgba(255, 255, 255, 0.8);
+  z-index: 999;
+}
+
+.prosesload .loading {
+  display: block;
+  position: relative;
+  color: rgb(97, 96, 96);
+}
+
+.cardlist{
+  margin-bottom: 20px;
+  max-width: 50%;
+  cursor: pointer;
+}
+
+.cardhov:hover{
+  background-color: #ecf0f1;
+}
+
+.card-title{
+  color :#2769be;
+}
+
+.btnloadmore {
+  margin: auto;
+  width: 200px;
+}
+
+.lbltype{
+  margin:auto;
+}
+
+.badge{
+  margin-right: 5px;
+}
+.badge-fight {
+    color: #fff;
+    background-color: #34495e;
+}
+
+.badge-fly {
+    color: #fff;
+    background-color: #bdc3c7;
+}
+
+.badge-poison {
+    color: #fff;
+    background-color: #9b59b6;
+}
+
+.badge-ground {
+    color: #fff;
+    background-color: #ccae62;
+}
+
+
+.badge-bug {
+    color: #fff;
+    background-color: #01a3a4;
+}
+
+.badge-warning {
+    color: #fff;
+    background-color: #f1c40f;
+}

@@ -11,9 +11,10 @@ import { Pokemon } from './view/tools/pokemon.class';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  public mypokeItems$: Observable<Pokemon[]>;
+  public mypokeItems$: any;
   constructor(public location: Location,
               private MyPokeService: MyPokeService) { 
+    /*this.mypokeItems$ = this.MyPokeService.getListFavPoke();*/
     this.mypokeItems$ = this
       .MyPokeService
       .getItems();
