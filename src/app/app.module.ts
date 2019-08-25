@@ -7,15 +7,17 @@ import { AppComponent } from './app.component';
 import { ViewModule } from './view/view.module';
 import { routes } from './app.routing';
 import { MyPokeService } from './view/tools/mypoke.service';
+import {Location, CommonModule} from '@angular/common';
 @NgModule({
   imports: [ 
+    CommonModule,
     BrowserModule, 
     FormsModule,
     ViewModule,
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [MyPokeService],
+  providers: [MyPokeService, Location],
   declarations: [ 
     AppComponent,
   ],

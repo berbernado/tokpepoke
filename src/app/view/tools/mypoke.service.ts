@@ -28,8 +28,8 @@ export class MyPokeService {
 
   public getTotalAmount(): Observable<number> {
     return this.itemsMyPokeSubject.map((items: Pokemon[]) => {
-      return items.reduce((prev, curr: Pokemon) => {
-        return prev + curr.price;
+      return items.reduce((prev) => {
+        return prev;
       }, 0);
     });
   }

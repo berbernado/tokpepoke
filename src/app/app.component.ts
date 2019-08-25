@@ -12,7 +12,8 @@ import { Pokemon } from './view/tools/pokemon.class';
 })
 export class AppComponent {
   public mypokeItems$: Observable<Pokemon[]>;
-  constructor(private MyPokeService: MyPokeService) { 
+  constructor(public location: Location,
+              private MyPokeService: MyPokeService) { 
     this.mypokeItems$ = this
       .MyPokeService
       .getItems();
