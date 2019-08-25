@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ContentComponent } from './content/content.component';
-import { ContentDetailComponent } from './content/content.detail.component';
+import { PokemonComponent } from './pokemon/pokemon.component';
+import { PokemonDetailComponent } from './pokemon/pokemon.detail.component';
 import { MypokeComponent } from './mypoke/mypoke.component';
 
 export 
 const viewRoutes: Routes = [
   { path: 'pokemon', 
-    component: ContentComponent 
+    component: PokemonComponent 
   },
   { path: 'pokemon/:id',
-    component: ContentDetailComponent
+    component: PokemonDetailComponent
   },
   { path: 'mypoke',
     component: MypokeComponent
   },
   {
     path: 'pokemon',
-    component: ContentComponent,
+    component: PokemonComponent,
     data: { title: 'pokemon List' }
   },
   { path: '',

@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ViewModule } from './view/view.module';
-import { ViewRoutingModule } from './app.routing';
+import { routes } from './app.routing';
 import { MyPokeService } from './view/tools/mypoke.service';
 @NgModule({
   imports: [ 
@@ -13,7 +13,7 @@ import { MyPokeService } from './view/tools/mypoke.service';
     FormsModule,
     ViewModule,
     HttpClientModule,
-    ViewRoutingModule
+    RouterModule.forRoot(routes)
   ],
   providers: [MyPokeService],
   declarations: [ 
