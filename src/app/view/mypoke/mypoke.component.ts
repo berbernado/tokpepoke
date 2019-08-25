@@ -68,4 +68,8 @@ export class MypokeComponent implements OnInit {
     }
   }
 
+  movedetail(name: string){
+    window.location.href = 'detial/' + name;
+  }
+
 }

@@ -4,3 +4,12 @@ p {
 .navbg {
   background-image: linear-gradient(to right, #85D8CE , #085078);
 }
+
+.love{
+  margin-top:10px;
+  color: #95a5a6;
+  background-color: #ecf0f1;
+  border-radius: 0.25rem;
+  padding: 0.25em 0.4em;
+
+}

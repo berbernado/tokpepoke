@@ -8,14 +8,14 @@
     <div class="col-sm-4 lposisi">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="pokemon">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{name}}</li>
+        <li class="breadcrumb-item active" aria-current="page">{{name  | titlecase}}</li>
       </ol>
     </div>
     <div class="col-sm-8 mt-4 lposisi text-right">
-      <button *ngIf="!statusadd" (click)="addToMyPoke(mypokedetail)" class="btn btn-sm btn-info mr-3 " type="button">
+      <button *ngIf="!statusadd && !(id | checklove)" (click)="addToMyPoke(mypokedetail)" class="btn btn-sm btn-info mr-3 " type="button">
       <i class="fa fa-heart-o"></i> <span> Add To Favovrite</span>
       </button>
-      <button *ngIf="statusadd" disabled="" class="btn btn-sm btn-info mr-3 " type="button">
+      <button *ngIf="statusadd || (id | checklove)" disabled="" class="btn btn-sm btn-info mr-3 " type="button">
       <i class="fa fa-heart"></i> <span> My Favovrite</span>
       </button>
     </div>

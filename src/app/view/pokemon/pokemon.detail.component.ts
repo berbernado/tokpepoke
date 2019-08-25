@@ -91,5 +91,6 @@ export class PokemonDetailComponent implements OnInit {
     this.MyPokeService.addToMyPoke(mypoke);
     this.statusadd = true;
   }
+  
 
 }

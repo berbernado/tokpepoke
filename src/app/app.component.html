@@ -7,48 +7,14 @@
    
     <ul class="nav navbar-nav ml-auto">
       <li class="nav-item"><a class="nav-link" href="pokemon">Pokémon Database</a></li>
-      <li class="nav-item"><a class="nav-link" href="mypoke"><i class="fa fa-heart-o"></i> {{(mypokeItems$ | async).length}}</a></li>
-      <!--<li class="nav-item dropdown d-md-down-none" dropdown>
-            <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true" dropdownToggle (click)="true">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="row">
-                      <div class="col-md-10" style="text-align: right;max-width: 200px;width: 200px;padding-right: 5px;font-weight:400">
-                          <span class="nav-link"><i class="fa fa-heart-o"></i></span>
-                      </div>
-                      <div  style="float: left;width: 10px;">
-                          <i class="icon-envelope-letter"></i>
-                          <span class="badge badge-pill badge-danger" style="left: 87%">0</span>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg" *dropdownMenu>
-              <div class="dropdown-header text-center">
-                <strong>0 messages</strong>
-              </div>
-              <div>
-                  <a class="dropdown-item" href=""  style="border-bottom: 1px solid #C8CED3;">
-                      <div class="message">
-                        <div>
-                          <small class="text-muted">TOTALINBOXPUBLISH</small>
-                          <small class="text-muted float-right mt-1">test</small>
-                        </div>
-                        <div class="text-truncate font-weight-bold">
-                          <span class="fa fa-exclamation text-danger"></span> Progress Reviews Innovation
-                        </div>
-                        <div class="small text-muted text-truncate">user</div>
-                      </div>
-                    </a>
-              </div>
-
-                <a class="dropdown-item text-center" href="#">
-                <strong>View all messages</strong>
-              </a>
-              
-            </div>
-      </li>-->
+      <li class="nav-item "><a class="love" href="mypoke">
+        <i class="fa fa-heart" *ngIf="(mypokeItems$ | async).length > 0"></i> 
+        <i class="fa fa-heart-o" *ngIf="(mypokeItems$ | async).length === 0"></i> 
+        &nbsp;{{(mypokeItems$ | async).length}} &nbsp;
+        <i class="fa fa-caret-down"></i>
+        </a>
+      </li>
+      
       </ul>
   </div>
   

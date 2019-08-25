@@ -9,6 +9,7 @@ import { FilterPipe} from '../../config/filter.pipe';
 import { ColorTypePipe } from './tools/colortype.pipe';
 import { ColorStatPipe } from './tools/colorstat.pipe';
 import { ReplaceLinePipe } from './tools/replaceline.pipe';
+import { CheckLovePipe } from './tools/checklove.pipe';
 import { MypokeComponent } from './mypoke/mypoke.component';
 import { MyPokeService } from './tools/mypoke.service';
 import { viewRoutes } from './view.routing';
@@ -26,6 +27,7 @@ import { viewRoutes } from './view.routing';
     ColorTypePipe, 
     ColorStatPipe,
     ReplaceLinePipe,
+    CheckLovePipe,
     MypokeComponent 
   ],
   providers: [MyPokeService],
