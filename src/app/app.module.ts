@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ViewModule } from './view/view.module';
 import { ViewRoutingModule } from './app.routing';
-
+import { MyPokeService } from './view/tools/mypoke.service';
 @NgModule({
   imports: [ 
     BrowserModule, 
@@ -15,6 +15,7 @@ import { ViewRoutingModule } from './app.routing';
     HttpClientModule,
     ViewRoutingModule
   ],
+  providers: [MyPokeService],
   declarations: [ 
     AppComponent,
   ],

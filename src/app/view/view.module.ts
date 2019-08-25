@@ -3,8 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { ContentComponent } from './content/content.component';
 import { ContentDetailComponent } from './content/content.detail.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
@@ -14,18 +12,18 @@ import { ColorTypePipe } from './tools/colortype.pipe';
 import { ColorStatPipe } from './tools/colorstat.pipe';
 import { ReplaceLinePipe } from './tools/replaceline.pipe';
 import { MypokeComponent } from './mypoke/mypoke.component';
-import {MyPokeService} from './tools/mypoke.service';
+import { MyPokeService } from './tools/mypoke.service';
+import { viewRoutes } from './view.routing';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forChild(viewRoutes)
   ],
   declarations: [
-    HeaderComponent, 
     ContentComponent,
     ContentDetailComponent, 
-    FooterComponent, 
     PokemonComponent, 
     PokemonDetailComponent, 
     FilterPipe, 
@@ -35,6 +33,6 @@ import {MyPokeService} from './tools/mypoke.service';
     MypokeComponent 
   ],
   providers: [MyPokeService],
-  exports: [ContentComponent,ContentDetailComponent]
+  exports: [PokemonComponent,PokemonDetailComponent,MypokeComponent]
 })
 export class ViewModule { }

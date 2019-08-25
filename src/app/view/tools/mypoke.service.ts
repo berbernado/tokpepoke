@@ -12,10 +12,25 @@ export class MyPokeService {
   }
 
   public addToMyPoke(item: Pokemon) {
+    console.log(item);
     this.itemsMyPokeSubject.next([...this.itemsInMyPoke, item]);
   }
 
   public getItems(): Observable<Pokemon[]> {
     return this.itemsMyPokeSubject;
+  }
+
+  public removeFromCart(item: Pokemon) {
+    const currentItems = [...this.itemsInMyPoke];
+    const itemsWithoutRemoved = currentItems.filter(_ => _.id !== item.id);
+    this.itemsMyPokeSubject.next(itemsWithoutRemoved);
+  }
+
+  public getTotalAmount(): Observable<number> {
+    return this.itemsMyPokeSubject.map((items: Pokemon[]) => {
+      return items.reduce((prev, curr: Pokemon) => {
+        return prev + curr.price;
+      }, 0);
+    });
   }
 }
