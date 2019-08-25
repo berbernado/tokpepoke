@@ -3,12 +3,17 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UrlCollection } from '../../../config/UrlCollection';
 
+import {MyPokeService} from '../tools/mypoke.service';
+import {Pokemon} from '../tools/pokemon.class';
+
 @Component({
   selector: 'app-pokemondetial',
   templateUrl: './pokemon.detail.component.html',
   styleUrls: ['./pokemon.component.css']
 })
 export class PokemonDetailComponent implements OnInit {
+  public mypoke: Pokemon = {};
+
   public namepoke: string;
   public abilities: any;
   public base_experience: any;
@@ -29,10 +34,16 @@ export class PokemonDetailComponent implements OnInit {
   public weight: any;
   public bigpic: any;
 
+  public mypokedetail = {
+    id :'',
+    name : ''
+  }
+  statusadd = false;
   loading = true;
 
   constructor(private route: ActivatedRoute,
-              private httpService: HttpClient) { }
+              private httpService: HttpClient,
+              private MyPokeService: MyPokeService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -64,6 +75,8 @@ export class PokemonDetailComponent implements OnInit {
         this.bigpic = detilpoke.sprites.front_default;
         this.loading = false;
 
+        this.mypokedetail.id = detilpoke.id;
+        this.mypokedetail.name = detilpoke.name;
       },
       error => {
         console.log(error);
@@ -72,6 +85,11 @@ export class PokemonDetailComponent implements OnInit {
 
   openbigpic(url: any){
     this.bigpic = url;
+  }
+
+  public addToMyPoke(mypoke: Pokemon) {
+    this.MyPokeService.addToMyPoke(mypoke);
+    this.statusadd = true;
   }
 
 }

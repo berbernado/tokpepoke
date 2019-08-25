@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContentComponent } from './view/content/content.component';
 import { ContentDetailComponent } from './view/content/content.detail.component';
+import { MypokeComponent } from './view/mypoke/mypoke.component';
 
 export 
 const appRoutes: Routes = [
@@ -10,6 +11,9 @@ const appRoutes: Routes = [
   },
   { path: 'pokemon/:id',
     component: ContentDetailComponent
+  },
+  { path: 'mypoke',
+    component: MypokeComponent
   },
   {
     path: 'pokemon',

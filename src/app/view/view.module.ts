@@ -13,6 +13,8 @@ import { FilterPipe} from '../../config/filter.pipe';
 import { ColorTypePipe } from './tools/colortype.pipe';
 import { ColorStatPipe } from './tools/colorstat.pipe';
 import { ReplaceLinePipe } from './tools/replaceline.pipe';
+import { MypokeComponent } from './mypoke/mypoke.component';
+import {MyPokeService} from './tools/mypoke.service';
 
 @NgModule({
   imports: [
@@ -29,8 +31,10 @@ import { ReplaceLinePipe } from './tools/replaceline.pipe';
     FilterPipe, 
     ColorTypePipe, 
     ColorStatPipe,
-    ReplaceLinePipe 
+    ReplaceLinePipe,
+    MypokeComponent 
   ],
+  providers: [MyPokeService],
   exports: [ContentComponent,ContentDetailComponent]
 })
 export class ViewModule { }

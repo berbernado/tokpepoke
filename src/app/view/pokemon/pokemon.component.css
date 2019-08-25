@@ -144,5 +144,8 @@
 
 
 @media (max-width: 620px) {
+  .lposisi {
+    width: 50%;
+  }
   
 }
