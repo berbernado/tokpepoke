@@ -104,6 +104,11 @@ export class PokemonComponent implements OnInit {
     this.mypokedetail.id = id;
     this.mypokedetail.name = name;
     this.MyPokeService.addToMyPoke(this.mypokedetail);
+
+    const btnlike = document.getElementById('btnlike' + id);
+    const btndislike = document.getElementById('btndislike' + id);
+    btndislike.classList.add('hilang');
+    btnlike.classList.remove('hilang');
   }
   
 }
