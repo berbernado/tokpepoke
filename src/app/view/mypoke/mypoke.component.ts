@@ -31,16 +31,12 @@ export class MypokeComponent implements OnInit {
     this.myPokeItems$.subscribe(_ => this.myPokeItems = _);
   }
   ngOnInit() {
-    console.log(localStorage.getItem('favpokemon'));
     this.getPokeImages();
   }
 
-  public getTotal(): Observable<number> {
-    return this.MyPokeService.getTotalAmount();
-  }
 
-  public removeItem(item: Pokemon) {
-    this.MyPokeService.removeFromCart(item)
+  removeItem(id: any) {
+    this.MyPokeService.removeFromFav(id);
   }
 
   getPokeImages(){ 

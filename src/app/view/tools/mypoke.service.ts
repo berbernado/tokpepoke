@@ -13,7 +13,7 @@ export class MyPokeService {
 
   public addToMyPoke(item: Pokemon) {
     
-    if(localStorage.getItem('favpokemon') != ""){
+    if(localStorage.getItem('favpokemon') != "" && localStorage.getItem('favpokemon') != null){
       const favpokemon = JSON.parse(localStorage.getItem('favpokemon'));
       this.itemsInMyPoke = favpokemon;
       const getdata: number = this.itemsInMyPoke.findIndex(o => o.id === item.id);
@@ -35,8 +35,7 @@ export class MyPokeService {
   }
 
   getListFavPoke() {
-    console.log(localStorage.getItem('favpokemon'));
-    if(localStorage.getItem('favpokemon') != ""){
+    if(localStorage.getItem('favpokemon') != "" && localStorage.getItem('favpokemon') != null){
       const favpokemon = JSON.parse(localStorage.getItem('favpokemon'));
       
     return this.itemsInMyPoke = favpokemon;
@@ -45,26 +44,26 @@ export class MyPokeService {
   }
 
   public getItems(): Observable<Pokemon[]> {
-    if (this.itemsInMyPoke.length === 0) {
-      const favpokemon = JSON.parse(localStorage.getItem('favpokemon'));
-      this.itemsInMyPoke = favpokemon;
-      this.itemsMyPokeSubject.next([...this.itemsInMyPoke]);
-    }
-    
+     if(localStorage.getItem('favpokemon') != "" && localStorage.getItem('favpokemon') != null){
+        if (this.itemsInMyPoke.length === 0) {
+          const favpokemon = JSON.parse(localStorage.getItem('favpokemon'));
+          this.itemsInMyPoke = favpokemon;
+          this.itemsMyPokeSubject.next([...this.itemsInMyPoke]);
+        }
+     }
     return this.itemsMyPokeSubject;
   }
 
-  public removeFromFav(item: Pokemon) {
-    const currentItems = [...this.itemsInMyPoke];
+  public removeFromFav(id: any) {
+    /*const currentItems = [...this.itemsInMyPoke];
     const itemsWithoutRemoved = currentItems.filter(_ => _.id !== item.id);
-    this.itemsMyPokeSubject.next(itemsWithoutRemoved);
-  }
-
-  public getTotalAmount(): Observable<number> {
-    return this.itemsMyPokeSubject.map((items: Pokemon[]) => {
-      return items.reduce((prev) => {
-        return prev;
-      }, 0);
-    });
+    this.itemsMyPokeSubject.next(itemsWithoutRemoved);*/
+    const favpokemon = JSON.parse(localStorage.getItem('favpokemon'));
+    this.itemsInMyPoke = favpokemon;
+    const getdata: number = this.itemsInMyPoke.findIndex(o => o.id === id);
+    if (delete this.itemsInMyPoke[getdata]) {
+       localStorage.setItem('favpokemon', JSON.stringify(this.itemsInMyPoke));
+       this.itemsMyPokeSubject.next([...this.itemsInMyPoke]);
+    }
   }
 }

@@ -77,3 +77,11 @@
     color: #fff;
     background-color: #f1c40f;
 }
+
+.btndel {
+  display: inline-block;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
