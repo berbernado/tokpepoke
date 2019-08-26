@@ -33,12 +33,16 @@ export class PokemonDetailComponent implements OnInit {
   public types: any;
   public weight: any;
   public bigpic: any;
-
+  public nickname: any;
+  
+  
   public mypokedetail = {
-    id :'',
-    name : ''
+    id :0,
+    name : '',
+    nickname : ''
   }
   statusadd = false;
+  statusedit = false;
   loading = true;
 
   constructor(private route: ActivatedRoute,
@@ -77,6 +81,20 @@ export class PokemonDetailComponent implements OnInit {
 
         this.mypokedetail.id = detilpoke.id;
         this.mypokedetail.name = detilpoke.name;
+
+        if(localStorage.getItem('catchpokemon') != "" && localStorage.getItem('catchpokemon') != null){
+          let itemsCatchPoke : Pokemon[] = [];
+          itemsCatchPoke = JSON.parse(localStorage.getItem('catchpokemon'));
+          const getnick = itemsCatchPoke.find(x => x.id = this.id).nickname;
+          
+          if (getnick === undefined){
+            this.nickname = 'Nick Name';
+          } else {
+            this.nickname = getnick;
+          }
+        } else {
+          this.nickname = 'Nick Name';
+        }
       },
       error => {
         console.log(error);
@@ -87,10 +105,21 @@ export class PokemonDetailComponent implements OnInit {
     this.bigpic = url;
   }
 
-  public addToMyPoke(mypoke: Pokemon) {
-    this.MyPokeService.addToMyPoke(mypoke);
+  public catchPokemon(mypoke: Pokemon) {
+    this.MyPokeService.catchPokemon(mypoke);
     this.statusadd = true;
   }
+
+  editnick(){
+    this.statusedit = true;
+  }
   
+  savenick(){
+    this.mypokedetail.id = this.id;
+    this.mypokedetail.name = this.name;
+    this.mypokedetail.nickname = this.nickname;
+    this.MyPokeService.saveNickname(this.mypokedetail);
+    this.statusedit = false;
+  }
 
 }

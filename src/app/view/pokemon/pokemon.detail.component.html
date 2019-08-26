@@ -12,11 +12,12 @@
       </ol>
     </div>
     <div class="col-sm-8 mt-4 lposisi text-right">
-      <button *ngIf="!statusadd && !(id | checklove)" (click)="addToMyPoke(mypokedetail)" class="btn btn-sm btn-info mr-3 " type="button">
-      <i class="fa fa-heart-o"></i> <span> Add To Favovrite</span>
+      <button *ngIf="!statusadd && !(id | checkcatch)" (click)="catchPokemon(mypokedetail)" class="btn btn-sm btn-info mr-3 " type="button">
+      <img src="https://img.icons8.com/color/48/000000/open-pokeball--v2.png" width="20">
+       <span> Catch</span>
       </button>
-      <button *ngIf="statusadd || (id | checklove)" disabled="" class="btn btn-sm btn-info mr-3 " type="button">
-      <i class="fa fa-heart"></i> <span> My Favovrite</span>
+      <button *ngIf="statusadd || (id | checkcatch)" disabled="" class="btn btn-sm btn-info mr-3 " type="button">
+      <img src="https://img.icons8.com/color/50/000000/pokeball-2.png" width="20"> <span> Gotcha</span>
       </button>
     </div>
   </div>
@@ -45,6 +46,23 @@
       <div class="col-sm-8">
         <div class="card-body">
           <h2 class="title mb-2">{{name | titlecase}}</h2>
+          <div *ngIf="(id | checkcatch)" >
+            <p class="text-muted" *ngIf="!statusedit">
+              <span># {{nickname}}</span>&nbsp;
+              <a (click)="editnick()" class="text-muted" href="javascript:void(0)"><i class="fa fa-edit"></i></a>
+            </p>
+            <div class="form-group row" *ngIf="statusedit">
+              <div class="col-sm-4 lposisi2 pr-0">
+                <input type="text" [(ngModel)]="nickname" class="form-control form-control-sm " id="nickname" placeholder="Type for nickname.." name="nickname">
+              </div>
+              <label class="col-sm-2 lposisi0">
+                <button (click)="savenick()" class="btn btn-sm btn-primary" type="button">
+                  <i class="fa fa-save"></i>
+                </button>    
+              </label>
+            </div>
+          </div> 
+          
           <span *ngFor="let x of types" class="{{x.type.name | colortype}}">{{x.type.name}}</span>
 
           <div class="row mt-4">  

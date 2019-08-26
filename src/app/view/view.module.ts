@@ -10,6 +10,8 @@ import { ColorTypePipe } from './tools/colortype.pipe';
 import { ColorStatPipe } from './tools/colorstat.pipe';
 import { ReplaceLinePipe } from './tools/replaceline.pipe';
 import { CheckLovePipe } from './tools/checklove.pipe';
+import { CheckCatchPipe } from './tools/checkcatch.pipe';
+import { GetNickNamePipe } from './tools/getnickname.pipe';
 import { MypokeComponent } from './mypoke/mypoke.component';
 import { MyPokeService } from './tools/mypoke.service';
 import { viewRoutes } from './view.routing';
@@ -28,6 +30,8 @@ import { viewRoutes } from './view.routing';
     ColorStatPipe,
     ReplaceLinePipe,
     CheckLovePipe,
+    CheckCatchPipe,
+    GetNickNamePipe,
     MypokeComponent 
   ],
   providers: [MyPokeService],

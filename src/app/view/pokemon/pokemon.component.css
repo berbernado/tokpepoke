@@ -5,6 +5,9 @@
 .headertitle{
   width: 50%;
 }
+.nick{
+  font-size: 11px;
+}
 .imgstyle {
   image-rendering: pixelated;
 }
@@ -180,9 +183,19 @@
   display: none;
 }
 
+.save{
+  color:#2ecc71;
+}
+
 @media (max-width: 620px) {
+  .lposisi0 {
+    width: 10%;
+  }
   .lposisi {
     width: 50%;
+  }
+  .lposisi2 {
+    width: 80%;
   }
   
 }

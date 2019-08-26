@@ -6,6 +6,7 @@ import {of} from 'rxjs/observable/of';
 export class MyPokeService {
   private itemsMyPokeSubject: BehaviorSubject<Pokemon[]> = new BehaviorSubject([]);
   private itemsInMyPoke: Pokemon[] = [];
+  private itemsCatchPoke: Pokemon[] = [];
 
   constructor() {
     this.itemsMyPokeSubject.subscribe(_ => this.itemsInMyPoke = _);
@@ -34,6 +35,28 @@ export class MyPokeService {
     this.itemsMyPokeSubject.next([...this.itemsInMyPoke]);
   }
 
+  public catchPokemon(item: Pokemon) {
+    
+    if(localStorage.getItem('catchpokemon') != "" && localStorage.getItem('catchpokemon') != null){
+      const catchpokemon = JSON.parse(localStorage.getItem('catchpokemon'));
+      this.itemsCatchPoke = catchpokemon;
+      const getdata: number = this.itemsInMyPoke.findIndex(o => o.id === item.id);
+      
+      if (getdata < 0){
+        this.itemsCatchPoke.push(
+          { id: item.id, name: item.name }
+        );
+      }
+      
+    } else {
+      this.itemsCatchPoke.push(
+       { id: item.id, name: item.name }
+      );
+    }
+
+    localStorage.setItem('catchpokemon', JSON.stringify(this.itemsCatchPoke));
+  }
+
   getListFavPoke() {
     if(localStorage.getItem('favpokemon') != "" && localStorage.getItem('favpokemon') != null){
       const favpokemon = JSON.parse(localStorage.getItem('favpokemon'));
@@ -57,9 +80,6 @@ export class MyPokeService {
   }
 
   public removeFromFav(id: any) {
-    /*const currentItems = [...this.itemsInMyPoke];
-    const itemsWithoutRemoved = currentItems.filter(_ => _.id !== item.id);
-    this.itemsMyPokeSubject.next(itemsWithoutRemoved);*/
     const favpokemon = JSON.parse(localStorage.getItem('favpokemon'));
     this.itemsInMyPoke = favpokemon;
 
@@ -72,5 +92,21 @@ export class MyPokeService {
       localStorage.setItem('favpokemon', JSON.stringify(this.itemsInMyPoke));
       this.itemsMyPokeSubject.next([...this.itemsInMyPoke]);
     }
+  }
+
+  public saveNickname(item: Pokemon) {
+    const favpokemon = JSON.parse(localStorage.getItem('catchpokemon'));
+    this.itemsInMyPoke = favpokemon;
+
+    const getdata: number = this.itemsInMyPoke.findIndex(o => o.id === item.id);
+    const newArray = this.itemsInMyPoke.filter(value => Object.keys(value).length !== 0);
+    delete newArray[getdata]
+    this.itemsInMyPoke = newArray;
+    this.itemsInMyPoke = this.itemsInMyPoke.filter(value => Object.keys(value).length !== 0);
+    this.itemsInMyPoke.push(
+      { id: item.id, name: item.name, nickname: item.nickname }
+    );
+
+    localStorage.setItem('catchpokemon', JSON.stringify(this.itemsInMyPoke));
   }
 }
