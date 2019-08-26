@@ -29,9 +29,10 @@ export class MypokeComponent implements OnInit {
       .getItems();
 
     this.myPokeItems$.subscribe(_ => this.myPokeItems = _);
+    
+    this.getPokeImages();
   }
   ngOnInit() {
-    this.getPokeImages();
   }
 
 

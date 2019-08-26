@@ -44,8 +44,10 @@ export class MyPokeService {
   }
 
   public getItems(): Observable<Pokemon[]> {
+    //localStorage.setItem('favpokemon', '');
      if(localStorage.getItem('favpokemon') != "" && localStorage.getItem('favpokemon') != null){
         if (this.itemsInMyPoke.length === 0) {
+          
           const favpokemon = JSON.parse(localStorage.getItem('favpokemon'));
           this.itemsInMyPoke = favpokemon;
           this.itemsMyPokeSubject.next([...this.itemsInMyPoke]);
@@ -60,10 +62,15 @@ export class MyPokeService {
     this.itemsMyPokeSubject.next(itemsWithoutRemoved);*/
     const favpokemon = JSON.parse(localStorage.getItem('favpokemon'));
     this.itemsInMyPoke = favpokemon;
+
     const getdata: number = this.itemsInMyPoke.findIndex(o => o.id === id);
-    if (delete this.itemsInMyPoke[getdata]) {
-       localStorage.setItem('favpokemon', JSON.stringify(this.itemsInMyPoke));
-       this.itemsMyPokeSubject.next([...this.itemsInMyPoke]);
+    const newArray = this.itemsInMyPoke.filter(value => Object.keys(value).length !== 0);
+    
+    if (delete newArray[getdata]) {
+      this.itemsInMyPoke = newArray;
+      this.itemsInMyPoke = this.itemsInMyPoke.filter(value => Object.keys(value).length !== 0);; 
+      localStorage.setItem('favpokemon', JSON.stringify(this.itemsInMyPoke));
+      this.itemsMyPokeSubject.next([...this.itemsInMyPoke]);
     }
   }
 }
