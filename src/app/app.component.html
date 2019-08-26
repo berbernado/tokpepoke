@@ -7,7 +7,7 @@
    
     <ul class="nav navbar-nav ml-auto">
       <li class="nav-item"><a class="nav-link" href="pokemon">Pokémon Database</a></li>
-      <li class="nav-item "><a class="love" href="mypoke">
+      <li class="nav-item pt-2"><a class="xlove" href="mypoke">
         <i class="fa fa-heart" *ngIf="(mypokeItems$ | async).length > 0"></i> 
         <i class="fa fa-heart-o" *ngIf="(mypokeItems$ | async).length === 0"></i> 
         &nbsp;{{(mypokeItems$ | async).length}} &nbsp;
