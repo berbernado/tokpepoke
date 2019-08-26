@@ -38,9 +38,11 @@ export class MypokeComponent implements OnInit {
 
   removeItem(id: any) {
     this.MyPokeService.removeFromFav(id);
+    this.getPokeImages()
   }
 
   getPokeImages(){ 
+    this.dataPoke = [];
     for (const result of this.myPokeItems) {
       this.httpService.get<any>(UrlCollection.LISTPOKEMON + result.id + '/').subscribe(
         detilpoke => {
